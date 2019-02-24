@@ -5,15 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-        canvas{
-            width: 50%;
+        #board{
+            text-align: center;
+            display: flex;
+        }
+        #chooseHero{
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 10px;
+        }
+        button{
+            width: 40%;
+            height: 20%;
+            margin: 15px;
         }
     </style>
     <title>Game</title>
 </head>
 <body>
-    <canvas id="game-board" width="720" height="560" style="border: 1px solid black"></canvas>
-    <script src="js/randomObstacles.js"></script>
-    <script src="js/canvas.js"></script>
+    <div id="board">
+        <canvas id="game-board" width="720" height="560" style="border: 1px solid black"></canvas>
+
+        <div id="chooseHero">
+            <div id="playerA">
+                <h3>Player A Turn</h3>
+                <table id="chooseHero" style="border: 1px solid red">
+                    <caption>Available heroes</caption>
+                    <tr>
+                        <td id="dwarf1"style="border: 1px solid red"><span class="count">2x</span> <img src="img/grandpa-1152053_640.png"></td>
+                        <td id="knight1" style="border: 1px solid red"><span class="count">2x</span> <img src="img/man-3190959_640.png"></td>
+                        <td id="elf1" style="border: 1px solid red"><span class="count">2x</span> <img src="img/woman-1261048_640.png"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="action">
+                <button>Attack</button>
+                <button>Move</button>
+                <button>Heal</button>
+            </div>
+            
+            <div id="playerB">
+                <h3>Player B Turn</h3>
+                <table id="chooseHero" style="border: 1px solid red">
+                    <caption>Available heroes</caption>
+                    <tr>
+                        <td id="dwarf2" style="border: 1px solid red"><span class="count">2x</span> <img src="img/grandpa-1152053_640.png"></td>
+                        <td id="knight2" style="border: 1px solid red"><span class="count">2x</span> <img src="img/man-3190959_640.png"></td>
+                        <td id="elf2" style="border: 1px solid red"><span class="count">2x</span> <img src="img/woman-1261048_640.png"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    <script src="js/playersTurn.js"></script>
+    <script src="js/RandomObstacles.js"></script>
+    <script src="js/canvas.js"></script>    
 </body>
 </html>
