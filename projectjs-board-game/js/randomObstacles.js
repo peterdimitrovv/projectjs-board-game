@@ -1,19 +1,19 @@
-var getRandomNum = function (maxNum, minNum) {
-    return Math.floor(Math.random() * (maxNum - minNum)) + minNum;
+var getRandom = function (max, min) {
+    return Math.floor(Math.random() * (max - min)) + min;
 }
-const obstacles = [];
+const barriers = [];
 
 var createObstacles = function () {
-    var obstaclesCount = getRandomNum(6, 1);
-    for (let i = 0; i < obstaclesCount; i++) {
-        var obstacle = {
-            col: getRandomNum(9, 0),
-            row: getRandomNum(5, 2)
+    const barriersCount = getRandom(5, 1);
+    for (let i = 0; i < barriersCount; i++) {
+        const barrier = {
+            col: getRandom(9, 0),
+            row: getRandom(5, 2)
         }
-        obstacles.push(obstacle);
+        barriers.push(barrier);
     }
 }
 
 var getObstacles = function () {
-    return obstacles;
+    return barriers;
 }

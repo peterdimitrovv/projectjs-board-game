@@ -26,6 +26,9 @@
 <body>
     <div id="board">
         <canvas id="game-board" width="720" height="560" style="border: 1px solid black"></canvas>
+        <img id="dwarf" width="80" height="80" src="img/grandpa-1152053_640.png" style="display: none">
+        <img id="knight" src="img/man-3190959_640.png" style="display: none">
+        <img id="elf" src="img/woman-1261048_640.png" style="display: none">
 
         <div id="chooseHero">
             <div id="playerA">
@@ -60,8 +63,13 @@
         </div>
         
     </div>
-    <script src="js/playersTurn.js"></script>
-    <script src="js/RandomObstacles.js"></script>
+    
+    <script src="js/heroes.js"></script>
+    <script src="js/Players/playersTurn.js"></script>
+    <script src="js/Players/playerTwoTurn.js"></script>
+    <script src="js/Players/playerOneTurn.js"></script>
+    <script src="js/position.js"></script>
+    <script src="js/randomObstacles.js"></script>
     <script src="js/canvas.js"></script>    
 </body>
 </html>
