@@ -55,6 +55,7 @@ var playerTwoElf = document.getElementById("elf2");
 
 playerOneDwarf.addEventListener("click", getDwarf);
 playerOneKnight.addEventListener("click", getKnight);
+playerOneElf.addEventListener("click", getElf)
 
 playerTwoDwarf.addEventListener("click", getDwarf);
 playerTwoKnight.addEventListener("click", getKnight);
