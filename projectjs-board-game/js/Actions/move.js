@@ -5,7 +5,6 @@ var isPlayerOneTurn = true;
 
 var moveHero = function(){
     moveButton.removeEventListener("click", moveButton);
-    
     var move = function(col, row){
         var chosedHeroMovement = null;
         var chosedHeroRow = null;
@@ -16,12 +15,18 @@ var moveHero = function(){
                     for(var posibleMovement = 1; posibleMovement <= chosedHeroMovement; posibleMovement++){
                         if(chosedHeroCol === playerOneFigures[i].col && chosedHeroRow === playerOneFigures[i].row && chosedHeroMovement === playerOneFigures[i].speed){
                             if((col === playerOneFigures[i].col + posibleMovement && row === playerOneFigures[i].row) || (col === playerOneFigures[i].col && row === playerOneFigures[i].row + posibleMovement) || (col === playerOneFigures[i].col + posibleMovement && row === playerOneFigures[i].row + posibleMovement) || (col === playerOneFigures[i].col - posibleMovement && row === playerOneFigures[i].row) || (col === playerOneFigures[i].col && row === playerOneFigures[i].row - posibleMovement) || (col === playerOneFigures[i].col - posibleMovement && row === playerOneFigures[i].row - posibleMovement)){
-                                playerOneFigures[i].row = row;
-                                playerOneFigures[i].col = col; 
-                                context.clearRect(0, 0, 720, 560);
-                                createBoard();
-                                drawHeroes();
-                                isPlayerOneTurn = false;
+                                var obstacles = getObstacles();
+                                if (obstacles.filter(o => o.col == col && o.row == row).length !== 0){
+                                    alert ('There is obstacle. You can not move your figure there');
+                                }
+                                else{
+                                    playerOneFigures[i].row = row;
+                                    playerOneFigures[i].col = col; 
+                                    context.clearRect(0, 0, 720, 560);
+                                    createBoard();
+                                    drawHeroes();
+                                    isPlayerOneTurn = false
+                                }
                             }
                         }
                     }
