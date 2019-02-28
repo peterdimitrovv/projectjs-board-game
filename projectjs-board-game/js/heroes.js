@@ -7,7 +7,7 @@ var getKnight = function(row, col){
         armor: 3,
         health: 15,
         attackedSquares: 1,
-        spped: 1,
+        speed: 1,
         row,
         col,
         imgId: 'knight'
@@ -21,7 +21,7 @@ var getElf = function(row, col){
         armor: 1,
         health: 10,
         attackedSquares: 3,
-        spped: 3,
+        speed: 3,
         row, 
         col,
         imgId: 'elf'

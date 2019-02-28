@@ -32,3 +32,5 @@ var createBoard = function(){
 }
 
 playersTurn();
+
+playerTurnForAction();
