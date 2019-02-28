@@ -19,6 +19,9 @@ var moveHero = function(){
                                 if (obstacles.filter(o => o.col == col && o.row == row).length !== 0){
                                     alert ('There is obstacle. You can not move your figure there');
                                 }
+                                else if(playerOneFigures.filter(f => f.col == col && f.row == row).length !== 0){
+                                    alert('There is already a figure there')
+                                }
                                 else{
                                     playerOneFigures[i].row = row;
                                     playerOneFigures[i].col = col; 
@@ -38,12 +41,21 @@ var moveHero = function(){
                     for(var posibleMovement = 1; posibleMovement <= chosedHeroMovement; posibleMovement++){
                         if(chosedHeroCol === playerTwoFigures[i].col && chosedHeroRow === playerTwoFigures[i].row && chosedHeroMovement === playerTwoFigures[i].speed){
                             if((col === playerTwoFigures[i].col + posibleMovement && row === playerTwoFigures[i].row) || (col === playerTwoFigures[i].col && row === playerTwoFigures[i].row + posibleMovement) || (col === playerTwoFigures[i].col + posibleMovement && row === playerTwoFigures[i].row + posibleMovement) || (col === playerTwoFigures[i].col - posibleMovement && row === playerTwoFigures[i].row) || (col === playerTwoFigures[i].col && row === playerTwoFigures[i].row - posibleMovement) || (col === playerTwoFigures[i].col - posibleMovement && row === playerTwoFigures[i].row - posibleMovement)){
-                                playerTwoFigures[i].row = row;
-                                playerTwoFigures[i].col = col; 
-                                context.clearRect(0, 0, 720, 560);
-                                createBoard();
-                                drawHeroes();
-                                isPlayerOneTurn = true;
+                                var obstacles = getObstacles();
+                                if (obstacles.filter(o => o.col == col && o.row == row).length !== 0){
+                                    alert ('There is obstacle. You can not move your figure there');
+                                }
+                                else if(playerOneFigures.filter(f => f.col == col && f.row == row).length !== 0){
+                                    alert('There is already a figure there')
+                                }
+                                else{
+                                    playerTwoFigures[i].row = row;
+                                    playerTwoFigures[i].col = col; 
+                                    context.clearRect(0, 0, 720, 560);
+                                    createBoard();
+                                    drawHeroes();
+                                    isPlayerOneTurn = true;
+                                }
                             }
                         }
                     }
